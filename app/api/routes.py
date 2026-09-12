@@ -1,6 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 
 from app.api.schemas import ChatCompletionRequest, ChatCompletionResponse
+from app.cache.exact_cache import ExactCache, get_exact_cache
+from app.cache.hashing import compute_request_hash
+from app.cache.models import CacheEntry
 from app.providers.base import (
     LLMProvider,
     ProviderAuthenticationError,
@@ -23,11 +26,28 @@ def get_llm_provider() -> LLMProvider:
 )
 async def create_chat_completion(
     request: ChatCompletionRequest,
+    response: Response,
     provider: LLMProvider = Depends(get_llm_provider),
+    cache: ExactCache = Depends(get_exact_cache),
 ) -> ChatCompletionResponse:
-    """Forward chat completion request to the upstream LLM provider."""
+    """
+    Forward chat completion request to exact cache or upstream LLM provider.
+    1. Deterministically hash request and check exact cache (fast-path).
+    2. On HIT: return cached response with X-Cache: HIT-EXACT.
+    3. On MISS: forward to LLM, populate exact cache, and return response with X-Cache: MISS.
+    """
+    request_hash = compute_request_hash(request)
+
+    # 1. Exact Cache Fast-Path Lookup
+    cached_entry = await cache.get(request_hash)
+    if cached_entry is not None:
+        response.headers["X-Cache"] = "HIT-EXACT"
+        return cached_entry.response
+
+    # 2. Cache Miss: Query upstream provider
+    response.headers["X-Cache"] = "MISS"
     try:
-        return await provider.complete(request)
+        llm_response = await provider.complete(request)
     except ProviderAuthenticationError as exc:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -38,3 +58,14 @@ async def create_chat_completion(
             status_code=status.HTTP_502_BAD_GATEWAY,
             detail=str(exc),
         )
+
+    # 3. Store result in exact cache
+    cache_entry = CacheEntry(
+        original_request_hash=request_hash,
+        response=llm_response,
+        model=request.model,
+    )
+    await cache.set(request_hash, cache_entry)
+
+    return llm_response
+
