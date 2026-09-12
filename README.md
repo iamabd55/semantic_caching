@@ -135,7 +135,7 @@ Tracking against the phase order defined in [`AGENTS.md`](./AGENTS.md):
 - [x] **Phase 0** — Project setup, `/health` endpoint, environment config
 - [x] **Phase 1** — Basic LLM gateway (OpenRouter pass-through)
 - [x] **Phase 2** — Exact request hashing
-- [ ] **Phase 3** — Canonicalization
+- [x] **Phase 3** — Canonicalization
 - [ ] **Phase 4** — Local embeddings
 - [ ] **Phase 5** — Qdrant integration
 - [ ] **Phase 6** — Semantic cache core

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 
 from app.api.schemas import ChatCompletionRequest, ChatCompletionResponse
+from app.cache.canonicalization import canonicalize_request
 from app.cache.exact_cache import ExactCache, get_exact_cache
 from app.cache.hashing import compute_request_hash
 from app.cache.models import CacheEntry
@@ -32,9 +33,10 @@ async def create_chat_completion(
 ) -> ChatCompletionResponse:
     """
     Forward chat completion request to exact cache or upstream LLM provider.
-    1. Deterministically hash request and check exact cache (fast-path).
+    1. Deterministically hash original request and check exact cache (fast-path).
     2. On HIT: return cached response with X-Cache: HIT-EXACT.
-    3. On MISS: forward to LLM, populate exact cache, and return response with X-Cache: MISS.
+    3. On MISS: forward original request to LLM, populate cache with both original
+       hash and canonicalized text (for semantic search), and return response with X-Cache: MISS.
     """
     request_hash = compute_request_hash(request)
 
@@ -44,7 +46,7 @@ async def create_chat_completion(
         response.headers["X-Cache"] = "HIT-EXACT"
         return cached_entry.response
 
-    # 2. Cache Miss: Query upstream provider
+    # 2. Cache Miss: Query upstream provider with ORIGINAL request untouched
     response.headers["X-Cache"] = "MISS"
     try:
         llm_response = await provider.complete(request)
@@ -59,13 +61,18 @@ async def create_chat_completion(
             detail=str(exc),
         )
 
-    # 3. Store result in exact cache
+    # 3. Canonicalize request for semantic cache storage
+    normalized_request = canonicalize_request(request)
+
+    # 4. Store result in exact cache
     cache_entry = CacheEntry(
         original_request_hash=request_hash,
         response=llm_response,
         model=request.model,
+        normalized_request=normalized_request,
     )
     await cache.set(request_hash, cache_entry)
 
     return llm_response
+
 
