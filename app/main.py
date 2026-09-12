@@ -1,5 +1,7 @@
 from fastapi import FastAPI
-app= FastAPI(title="Semantic Caching Gateway")
+from app.core.config import settings
+
+app = FastAPI(title=settings.PROJECT_NAME)
 
 
 @app.get("/health")
