@@ -16,8 +16,10 @@ class Settings(BaseSettings):
     QDRANT_URL: str = "http://localhost:6333"
     REDIS_URL: str = "redis://localhost:6379"
 
-    # Semantic Cache Defaults
+    # Semantic Cache & Embedding Defaults
     SIMILARITY_THRESHOLD: float = 0.85
+    EMBEDDING_MODEL_NAME: str = "all-MiniLM-L6-v2"
+    EMBEDDING_DIMENSION: int = 384
 
     model_config = SettingsConfigDict(
         env_file=".env",
