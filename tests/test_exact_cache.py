@@ -11,6 +11,9 @@ from app.api.schemas import (
 )
 from app.cache.exact_cache import InMemoryExactCache
 from app.cache.models import CacheEntry
+from app.cache.semantic_cache import SemanticCache, get_semantic_cache
+from app.db.qdrant import QdrantService
+from app.embeddings.service import get_embedding_service
 from app.main import app
 from app.providers.base import LLMProvider
 
@@ -87,10 +90,18 @@ def test_phase2_exact_cache_checkpoint():
     Request 3 -> Different request, X-Cache: MISS, second LLM call
     """
     mock_provider = CountingMockProvider()
-    isolated_cache = InMemoryExactCache()
+    isolated_exact_cache = InMemoryExactCache()
+    isolated_qdrant = QdrantService(location=":memory:")
+    isolated_semantic_cache = SemanticCache(
+        exact_cache=isolated_exact_cache,
+        embedding_service=get_embedding_service(),
+        qdrant_service=isolated_qdrant,
+        threshold=0.99,  # Ensures exact-cache testing without semantic false positives
+    )
 
     app.dependency_overrides[get_llm_provider] = lambda: mock_provider
-    app.dependency_overrides[get_exact_cache] = lambda: isolated_cache
+    app.dependency_overrides[get_exact_cache] = lambda: isolated_exact_cache
+    app.dependency_overrides[get_semantic_cache] = lambda: isolated_semantic_cache
 
     try:
         payload_1 = {
@@ -105,7 +116,7 @@ def test_phase2_exact_cache_checkpoint():
         data1 = res1.json()
         assert data1["choices"][0]["message"]["content"] == "Generated response #1 for: Explain machine learning."
         assert mock_provider.call_count == 1
-        assert len(isolated_cache) == 1
+        assert len(isolated_exact_cache) == 1
 
         # Request 2: Identical payload -> Exact Cache HIT
         res2 = client.post("/v1/chat/completions", json=payload_1)
@@ -129,7 +140,7 @@ def test_phase2_exact_cache_checkpoint():
         data3 = res3.json()
         assert data3["choices"][0]["message"]["content"] == "Generated response #2 for: What is deep learning?"
         assert mock_provider.call_count == 2
-        assert len(isolated_cache) == 2
+        assert len(isolated_exact_cache) == 2
 
     finally:
         app.dependency_overrides.clear()

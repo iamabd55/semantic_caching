@@ -12,8 +12,9 @@ class Settings(BaseSettings):
     OPENROUTER_API_KEY: str | None = None
     GROQ_API_KEY: str | None = None
 
-    # Infrastructure URLs
+    # Infrastructure URLs & Collections
     QDRANT_URL: str = "http://localhost:6333"
+    QDRANT_COLLECTION_NAME: str = "semantic_cache"
     REDIS_URL: str = "redis://localhost:6379"
 
     # Semantic Cache & Embedding Defaults

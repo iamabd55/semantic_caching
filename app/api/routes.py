@@ -1,10 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 
 from app.api.schemas import ChatCompletionRequest, ChatCompletionResponse
-from app.cache.canonicalization import canonicalize_request
-from app.cache.exact_cache import ExactCache, get_exact_cache
-from app.cache.hashing import compute_request_hash
-from app.cache.models import CacheEntry
+from app.cache.exact_cache import get_exact_cache
+from app.cache.semantic_cache import SemanticCache, get_semantic_cache
 from app.providers.base import (
     LLMProvider,
     ProviderAuthenticationError,
@@ -29,24 +27,22 @@ async def create_chat_completion(
     request: ChatCompletionRequest,
     response: Response,
     provider: LLMProvider = Depends(get_llm_provider),
-    cache: ExactCache = Depends(get_exact_cache),
+    cache: SemanticCache = Depends(get_semantic_cache),
 ) -> ChatCompletionResponse:
     """
-    Forward chat completion request to exact cache or upstream LLM provider.
-    1. Deterministically hash original request and check exact cache (fast-path).
-    2. On HIT: return cached response with X-Cache: HIT-EXACT.
-    3. On MISS: forward original request to LLM, populate cache with both original
-       hash and canonicalized text (for semantic search), and return response with X-Cache: MISS.
+    Forward chat completion request to semantic cache or upstream LLM provider.
+    1. Tier 1 & 2: Check ExactCache and Qdrant via SemanticCache.
+    2. On HIT: return cached response with X-Cache: HIT-EXACT or HIT-SEMANTIC.
+    3. On MISS: forward untouched request to LLM, store in cache, and return response with X-Cache: MISS.
     """
-    request_hash = compute_request_hash(request)
+    cache_result = await cache.lookup(request)
+    if cache_result.hit and cache_result.response is not None:
+        response.headers["X-Cache"] = f"HIT-{cache_result.hit_type}"
+        if cache_result.similarity_score is not None:
+            response.headers["X-Cache-Score"] = f"{cache_result.similarity_score:.4f}"
+        return cache_result.response
 
-    # 1. Exact Cache Fast-Path Lookup
-    cached_entry = await cache.get(request_hash)
-    if cached_entry is not None:
-        response.headers["X-Cache"] = "HIT-EXACT"
-        return cached_entry.response
-
-    # 2. Cache Miss: Query upstream provider with ORIGINAL request untouched
+    # Cache Miss: Query upstream provider with ORIGINAL request untouched
     response.headers["X-Cache"] = "MISS"
     try:
         llm_response = await provider.complete(request)
@@ -61,18 +57,10 @@ async def create_chat_completion(
             detail=str(exc),
         )
 
-    # 3. Canonicalize request for semantic cache storage
-    normalized_request = canonicalize_request(request)
-
-    # 4. Store result in exact cache
-    cache_entry = CacheEntry(
-        original_request_hash=request_hash,
-        response=llm_response,
-        model=request.model,
-        normalized_request=normalized_request,
-    )
-    await cache.set(request_hash, cache_entry)
+    # Store result in both ExactCache and Qdrant
+    await cache.store(request, llm_response)
 
     return llm_response
+
 
 

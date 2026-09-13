@@ -137,8 +137,8 @@ Tracking against the phase order defined in [`AGENTS.md`](./AGENTS.md):
 - [x] **Phase 2** — Exact request hashing
 - [x] **Phase 3** — Canonicalization
 - [x] **Phase 4** — Local embeddings
-- [ ] **Phase 5** — Qdrant integration
-- [ ] **Phase 6** — Semantic cache core
+- [x] **Phase 5** — Qdrant integration
+- [x] **Phase 6** — Semantic cache core
 - [ ] **Phase 7** — Cache correctness tests
 - [ ] **Phase 8** — Evaluation dataset
 - [ ] **Phase 9** — Threshold evaluation

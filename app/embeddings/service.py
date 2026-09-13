@@ -15,8 +15,11 @@ class EmbeddingService:
     def __init__(self, model_name: str | None = None) -> None:
         self.model_name = model_name or settings.EMBEDDING_MODEL_NAME
         self.dimension = settings.EMBEDDING_DIMENSION
-        # Load model into memory
-        self.model = SentenceTransformer(self.model_name)
+        # Prefer locally cached model weights to avoid online network retry delays
+        try:
+            self.model = SentenceTransformer(self.model_name, local_files_only=True)
+        except Exception:
+            self.model = SentenceTransformer(self.model_name)
 
     def embed(self, text: str) -> List[float]:
         """

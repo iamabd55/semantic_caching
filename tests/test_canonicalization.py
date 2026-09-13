@@ -11,6 +11,9 @@ from app.api.schemas import (
 from app.cache.canonicalization import canonicalize_request, canonicalize_text
 from app.cache.exact_cache import InMemoryExactCache
 from app.cache.hashing import compute_request_hash
+from app.cache.semantic_cache import SemanticCache, get_semantic_cache
+from app.db.qdrant import QdrantService
+from app.embeddings.service import get_embedding_service
 from app.main import app
 from app.providers.base import LLMProvider
 
@@ -83,10 +86,17 @@ def test_prd_phase3_checkpoint_original_vs_canonicalized():
       3. The CacheEntry stores the canonicalized text in `normalized_request`.
     """
     mock_provider = InspectingMockProvider()
-    isolated_cache = InMemoryExactCache()
+    isolated_exact = InMemoryExactCache()
+    isolated_qdrant = QdrantService(location=":memory:")
+    isolated_semantic = SemanticCache(
+        exact_cache=isolated_exact,
+        embedding_service=get_embedding_service(),
+        qdrant_service=isolated_qdrant,
+    )
 
     app.dependency_overrides[get_llm_provider] = lambda: mock_provider
-    app.dependency_overrides[get_exact_cache] = lambda: isolated_cache
+    app.dependency_overrides[get_exact_cache] = lambda: isolated_exact
+    app.dependency_overrides[get_semantic_cache] = lambda: isolated_semantic
 
     try:
         raw_prompt = "  Explain   MACHINE Learning!! "
@@ -113,7 +123,7 @@ def test_prd_phase3_checkpoint_original_vs_canonicalized():
         # Checkpoint 3: Cache entry contains normalized_request for semantic matching
         req_obj = ChatCompletionRequest(**payload)
         req_hash = compute_request_hash(req_obj)
-        cached_entry = isolated_cache._store.get(req_hash)
+        cached_entry = isolated_exact._store.get(req_hash)
 
         assert cached_entry is not None
         assert cached_entry.original_request_hash == req_hash
