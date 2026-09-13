@@ -8,6 +8,7 @@ from app.cache.canonicalization import canonicalize_request
 from app.cache.exact_cache import ExactCache, get_exact_cache
 from app.cache.hashing import compute_request_hash
 from app.cache.models import CacheEntry
+from app.cache.polarity_guard import has_polarity_conflict
 from app.core.config import settings
 from app.db.qdrant import QdrantService, get_qdrant_service
 from app.embeddings.service import EmbeddingService, get_embedding_service
@@ -73,16 +74,20 @@ class SemanticCache:
 
             if score >= self.threshold:
                 payload = top_match.get("payload", {})
-                cached_response_data = payload.get("response")
-                if cached_response_data:
-                    cached_response = ChatCompletionResponse.model_validate(cached_response_data)
-                    return CacheResult(
-                        hit=True,
-                        hit_type="SEMANTIC",
-                        response=cached_response,
-                        similarity_score=score,
-                        embedding_latency_ms=latency_ms,
-                    )
+                cached_text = payload.get("normalized_request", "")
+
+                # Post-filter: prevent false hits on explicit negation or antonym polarity conflict
+                if not has_polarity_conflict(canonical_text, cached_text):
+                    cached_response_data = payload.get("response")
+                    if cached_response_data:
+                        cached_response = ChatCompletionResponse.model_validate(cached_response_data)
+                        return CacheResult(
+                            hit=True,
+                            hit_type="SEMANTIC",
+                            response=cached_response,
+                            similarity_score=score,
+                            embedding_latency_ms=latency_ms,
+                        )
 
         # 3. Cache Miss
         top_score = matches[0]["score"] if matches else None

@@ -1,0 +1,866 @@
+[
+  {
+    "id": "pair_001",
+    "query_a": "What is machine learning?",
+    "query_b": "Can you explain machine learning?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_002",
+    "query_a": "What is machine learning?",
+    "query_b": "Tell me what is machine learning?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_003",
+    "query_a": "Explain neural networks in simple terms.",
+    "query_b": "What is a neural network in simple words?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_004",
+    "query_a": "How does gradient descent work?",
+    "query_b": "Explain the concept of gradient descent.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_005",
+    "query_a": "What is overfitting in machine learning?",
+    "query_b": "Can you define overfitting in ML models?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_006",
+    "query_a": "How do I prevent overfitting in deep learning?",
+    "query_b": "What are the best techniques to avoid overfitting?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_007",
+    "query_a": "What is transfer learning?",
+    "query_b": "Explain transfer learning in computer vision.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_008",
+    "query_a": "What is the transformer architecture?",
+    "query_b": "Explain how transformer models work in NLP.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_009",
+    "query_a": "What is self-attention mechanism?",
+    "query_b": "Explain the self attention mechanism in transformers.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_010",
+    "query_a": "What is the difference between precision and recall?",
+    "query_b": "Explain precision vs recall in model evaluation.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_011",
+    "query_a": "How do I reverse a string in Python?",
+    "query_b": "In Python, how can I reverse a string?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "python"
+  },
+  {
+    "id": "pair_012",
+    "query_a": "How to sort a dictionary by value in Python?",
+    "query_b": "In Python, how do you sort a dict by its values?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "python"
+  },
+  {
+    "id": "pair_013",
+    "query_a": "What are Python list comprehensions?",
+    "query_b": "Explain list comprehension syntax in Python.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "python"
+  },
+  {
+    "id": "pair_014",
+    "query_a": "What is the difference between a list and a tuple in Python?",
+    "query_b": "Explain list vs tuple in Python programming.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "python"
+  },
+  {
+    "id": "pair_015",
+    "query_a": "How do Python generators work?",
+    "query_b": "Explain generators and the yield statement in Python.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "python"
+  },
+  {
+    "id": "pair_016",
+    "query_a": "What does GIL mean in Python?",
+    "query_b": "Explain the Global Interpreter Lock in Python.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "python"
+  },
+  {
+    "id": "pair_017",
+    "query_a": "How do I create a virtual environment with uv?",
+    "query_b": "How to use uv to create a Python venv?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "python"
+  },
+  {
+    "id": "pair_018",
+    "query_a": "How to read a JSON file in Python?",
+    "query_b": "How do I load a json file in Python using json.load?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "python"
+  },
+  {
+    "id": "pair_019",
+    "query_a": "What is asyncio in Python?",
+    "query_b": "Explain asynchronous programming with asyncio in Python.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "python"
+  },
+  {
+    "id": "pair_020",
+    "query_a": "How do Python decorators work?",
+    "query_b": "Explain the concept of decorators in Python with an example.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "python"
+  },
+  {
+    "id": "pair_021",
+    "query_a": "What is the difference between SQL and NoSQL?",
+    "query_b": "Compare relational SQL databases with NoSQL databases.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_022",
+    "query_a": "What is a database index?",
+    "query_b": "How do database indexes improve query performance?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_023",
+    "query_a": "Explain ACID properties in database transactions.",
+    "query_b": "What do the ACID properties stand for in databases?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_024",
+    "query_a": "What is the difference between INNER JOIN and LEFT JOIN in SQL?",
+    "query_b": "Explain INNER JOIN vs LEFT JOIN with examples.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_025",
+    "query_a": "What is Redis and what is it used for?",
+    "query_b": "Explain what Redis in-memory data store is used for.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_026",
+    "query_a": "What is a vector database?",
+    "query_b": "Explain how vector databases like Qdrant work.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_027",
+    "query_a": "What is Docker and how does containerization work?",
+    "query_b": "Explain the basics of Docker and containerization.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_028",
+    "query_a": "What is the difference between a Docker image and a container?",
+    "query_b": "Explain Docker container vs Docker image.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_029",
+    "query_a": "How to stop all running Docker containers?",
+    "query_b": "Command to stop every active Docker container.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_030",
+    "query_a": "What is Kubernetes and what problem does it solve?",
+    "query_b": "Explain Kubernetes container orchestration.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_031",
+    "query_a": "What is CI/CD in modern software development?",
+    "query_b": "Explain Continuous Integration and Continuous Deployment.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_032",
+    "query_a": "How do I undo the last commit in Git?",
+    "query_b": "How to revert or undo the most recent git commit?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_033",
+    "query_a": "What is the difference between git merge and git rebase?",
+    "query_b": "Explain git rebase vs git merge.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_034",
+    "query_a": "What is a RESTful API?",
+    "query_b": "Explain REST API principles and constraints.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "web_api"
+  },
+  {
+    "id": "pair_035",
+    "query_a": "What is the difference between PUT and PATCH HTTP methods?",
+    "query_b": "Explain PUT vs PATCH in REST APIs.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "web_api"
+  },
+  {
+    "id": "pair_036",
+    "query_a": "What does HTTP status 401 Unauthorized mean?",
+    "query_b": "Explain HTTP 401 Unauthorized response status code.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "web_api"
+  },
+  {
+    "id": "pair_037",
+    "query_a": "What is the difference between 401 Unauthorized and 403 Forbidden?",
+    "query_b": "Explain HTTP 401 vs 403 status codes.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "web_api"
+  },
+  {
+    "id": "pair_038",
+    "query_a": "What is CORS in web development?",
+    "query_b": "Explain Cross-Origin Resource Sharing and why it is needed.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "web_api"
+  },
+  {
+    "id": "pair_039",
+    "query_a": "What is a JWT and how is it used for authentication?",
+    "query_b": "Explain JSON Web Tokens in web authentication.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "security"
+  },
+  {
+    "id": "pair_040",
+    "query_a": "What is the difference between symmetric and asymmetric encryption?",
+    "query_b": "Explain symmetric vs asymmetric cryptography.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "security"
+  },
+  {
+    "id": "pair_041",
+    "query_a": "How does HTTPS encrypt web traffic?",
+    "query_b": "Explain how SSL/TLS encryption works in HTTPS.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "security"
+  },
+  {
+    "id": "pair_042",
+    "query_a": "What is SQL injection and how to prevent it?",
+    "query_b": "Explain SQL injection attacks and best prevention practices.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "security"
+  },
+  {
+    "id": "pair_043",
+    "query_a": "What is the capital of France?",
+    "query_b": "Can you tell me the capital of France?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_044",
+    "query_a": "What is the capital of Japan?",
+    "query_b": "Tell me what city is the capital of Japan.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_045",
+    "query_a": "Who wrote Romeo and Juliet?",
+    "query_b": "Which author created Romeo and Juliet?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_046",
+    "query_a": "What is photosynthesis in plants?",
+    "query_b": "Explain the process of photosynthesis in simple terms.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_047",
+    "query_a": "How many days are in a leap year?",
+    "query_b": "What is the number of days in a leap year?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_048",
+    "query_a": "What causes earthquakes?",
+    "query_b": "Explain why earthquakes occur geologically.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_049",
+    "query_a": "What is the boiling point of water in Celsius?",
+    "query_b": "At what temperature in Celsius does water boil?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_050",
+    "query_a": "What is the distance between Earth and the Moon?",
+    "query_b": "How far is the Moon from planet Earth?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_051",
+    "query_a": "What is the speed of light in vacuum?",
+    "query_b": "How fast does light travel in a vacuum?",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_052",
+    "query_a": "What is binary search algorithm?",
+    "query_b": "Explain how binary search works on sorted arrays.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "algorithms"
+  },
+  {
+    "id": "pair_053",
+    "query_a": "What is Big O notation in computer science?",
+    "query_b": "Explain Big O notation and time complexity.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "algorithms"
+  },
+  {
+    "id": "pair_054",
+    "query_a": "What is the time complexity of quicksort?",
+    "query_b": "Explain the average and worst case time complexity of quicksort.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "algorithms"
+  },
+  {
+    "id": "pair_055",
+    "query_a": "What is a hash table and how does it resolve collisions?",
+    "query_b": "Explain hash tables and collision resolution methods.",
+    "expected_match": true,
+    "category": "positive_rephrasing",
+    "domain": "algorithms"
+  },
+  {
+    "id": "pair_056",
+    "query_a": "What is Python?",
+    "query_b": "How do I install Python on Windows?",
+    "expected_match": false,
+    "category": "negative_topic_overlap",
+    "domain": "python"
+  },
+  {
+    "id": "pair_057",
+    "query_a": "What is Python?",
+    "query_b": "What is JavaScript?",
+    "expected_match": false,
+    "category": "negative_different_entity",
+    "domain": "programming"
+  },
+  {
+    "id": "pair_058",
+    "query_a": "How to sort a list in Python?",
+    "query_b": "How to reverse a list in Python?",
+    "expected_match": false,
+    "category": "negative_different_operation",
+    "domain": "python"
+  },
+  {
+    "id": "pair_059",
+    "query_a": "How to append an item to a list in Python?",
+    "query_b": "How to remove an item from a list in Python?",
+    "expected_match": false,
+    "category": "negative_different_operation",
+    "domain": "python"
+  },
+  {
+    "id": "pair_060",
+    "query_a": "What is the capital of France?",
+    "query_b": "What is the population of France?",
+    "expected_match": false,
+    "category": "negative_different_attribute",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_061",
+    "query_a": "What is the capital of France?",
+    "query_b": "What is the capital of Germany?",
+    "expected_match": false,
+    "category": "negative_different_entity",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_062",
+    "query_a": "What is the capital of France?",
+    "query_b": "What is the official language of France?",
+    "expected_match": false,
+    "category": "negative_different_attribute",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_063",
+    "query_a": "How to bake a chocolate cake?",
+    "query_b": "How to bake a vanilla cake?",
+    "expected_match": false,
+    "category": "negative_different_entity",
+    "domain": "general_knowledge"
+  },
+  {
+    "id": "pair_064",
+    "query_a": "What is a neural network?",
+    "query_b": "How do neural networks learn?",
+    "expected_match": false,
+    "category": "borderline_distinct_concept",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_065",
+    "query_a": "Explain supervised learning.",
+    "query_b": "Explain unsupervised learning.",
+    "expected_match": false,
+    "category": "borderline_distinct_concept",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_066",
+    "query_a": "What is linear regression?",
+    "query_b": "What is logistic regression?",
+    "expected_match": false,
+    "category": "negative_different_algorithm",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_067",
+    "query_a": "What is L1 regularization?",
+    "query_b": "What is L2 regularization?",
+    "expected_match": false,
+    "category": "negative_different_technique",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_068",
+    "query_a": "How to train a model in PyTorch?",
+    "query_b": "How to train a model in TensorFlow?",
+    "expected_match": false,
+    "category": "negative_different_framework",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_069",
+    "query_a": "What is BERT model in NLP?",
+    "query_b": "What is GPT model in NLP?",
+    "expected_match": false,
+    "category": "negative_different_model",
+    "domain": "ai_ml"
+  },
+  {
+    "id": "pair_070",
+    "query_a": "What is Docker?",
+    "query_b": "How to install Docker on Ubuntu?",
+    "expected_match": false,
+    "category": "negative_topic_overlap",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_071",
+    "query_a": "How to build a Docker image?",
+    "query_b": "How to push a Docker image to Docker Hub?",
+    "expected_match": false,
+    "category": "negative_different_step",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_072",
+    "query_a": "What is Kubernetes Pod?",
+    "query_b": "What is Kubernetes Service?",
+    "expected_match": false,
+    "category": "negative_different_resource",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_073",
+    "query_a": "How to create a git branch?",
+    "query_b": "How to delete a git branch?",
+    "expected_match": false,
+    "category": "negative_opposite_operation",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_074",
+    "query_a": "What is Git commit?",
+    "query_b": "What is Git push?",
+    "expected_match": false,
+    "category": "negative_different_command",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_075",
+    "query_a": "What is PostgreSQL?",
+    "query_b": "What is MySQL?",
+    "expected_match": false,
+    "category": "negative_different_database",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_076",
+    "query_a": "What is primary key in SQL?",
+    "query_b": "What is foreign key in SQL?",
+    "expected_match": false,
+    "category": "negative_different_concept",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_077",
+    "query_a": "How to insert data into SQL table?",
+    "query_b": "How to delete data from SQL table?",
+    "expected_match": false,
+    "category": "negative_opposite_operation",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_078",
+    "query_a": "What is Qdrant?",
+    "query_b": "What is Pinecone?",
+    "expected_match": false,
+    "category": "negative_different_database",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_079",
+    "query_a": "What is HTTP GET method?",
+    "query_b": "What is HTTP POST method?",
+    "expected_match": false,
+    "category": "negative_different_method",
+    "domain": "web_api"
+  },
+  {
+    "id": "pair_080",
+    "query_a": "What is HTTP 200 OK?",
+    "query_b": "What is HTTP 404 Not Found?",
+    "expected_match": false,
+    "category": "negative_different_status",
+    "domain": "web_api"
+  },
+  {
+    "id": "pair_081",
+    "query_a": "What is HTTP 500 Internal Server Error?",
+    "query_b": "What is HTTP 502 Bad Gateway?",
+    "expected_match": false,
+    "category": "negative_different_status",
+    "domain": "web_api"
+  },
+  {
+    "id": "pair_082",
+    "query_a": "What is horizontal scaling?",
+    "query_b": "What is vertical scaling?",
+    "expected_match": false,
+    "category": "negative_different_scaling",
+    "domain": "cloud"
+  },
+  {
+    "id": "pair_083",
+    "query_a": "What is AWS S3?",
+    "query_b": "What is AWS EC2?",
+    "expected_match": false,
+    "category": "negative_different_service",
+    "domain": "cloud"
+  },
+  {
+    "id": "pair_084",
+    "query_a": "What is DFS algorithm in graphs?",
+    "query_b": "What is BFS algorithm in graphs?",
+    "expected_match": false,
+    "category": "negative_different_algorithm",
+    "domain": "algorithms"
+  },
+  {
+    "id": "pair_085",
+    "query_a": "What is Dijkstra algorithm?",
+    "query_b": "What is A* search algorithm?",
+    "expected_match": false,
+    "category": "negative_different_algorithm",
+    "domain": "algorithms"
+  },
+  {
+    "id": "pair_086",
+    "query_a": "What is a stack data structure?",
+    "query_b": "What is a queue data structure?",
+    "expected_match": false,
+    "category": "negative_different_data_structure",
+    "domain": "algorithms"
+  },
+  {
+    "id": "pair_087",
+    "query_a": "What is TCP protocol?",
+    "query_b": "What is UDP protocol?",
+    "expected_match": false,
+    "category": "negative_different_protocol",
+    "domain": "networking"
+  },
+  {
+    "id": "pair_088",
+    "query_a": "What is IPv4?",
+    "query_b": "What is IPv6?",
+    "expected_match": false,
+    "category": "negative_different_protocol",
+    "domain": "networking"
+  },
+  {
+    "id": "pair_089",
+    "query_a": "What is symmetric encryption?",
+    "query_b": "How to break symmetric encryption?",
+    "expected_match": false,
+    "category": "negative_topic_overlap",
+    "domain": "security"
+  },
+  {
+    "id": "pair_090",
+    "query_a": "What is multi-factor authentication?",
+    "query_b": "How to bypass multi-factor authentication?",
+    "expected_match": false,
+    "category": "negative_topic_overlap",
+    "domain": "security"
+  },
+  {
+    "id": "pair_091",
+    "query_a": "Why is sleep good for health?",
+    "query_b": "Why is sleep bad for health?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "health"
+  },
+  {
+    "id": "pair_092",
+    "query_a": "What are the advantages of using microservices?",
+    "query_b": "What are the disadvantages of using microservices?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "architecture"
+  },
+  {
+    "id": "pair_093",
+    "query_a": "What are the pros of Python?",
+    "query_b": "What are the cons of Python?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "programming"
+  },
+  {
+    "id": "pair_094",
+    "query_a": "What are the benefits of exercise?",
+    "query_b": "What are the harms of exercise?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "health"
+  },
+  {
+    "id": "pair_095",
+    "query_a": "Is it safe to run migrations in production?",
+    "query_b": "Is it dangerous to run migrations in production?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_096",
+    "query_a": "How to enable caching in Redis?",
+    "query_b": "How to disable caching in Redis?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_097",
+    "query_a": "How to start a Docker service?",
+    "query_b": "How to stop a Docker service?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_098",
+    "query_a": "How to create a Git repository?",
+    "query_b": "How to delete a Git repository?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_099",
+    "query_a": "Why is Python fast?",
+    "query_b": "Why is Python slow?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "programming"
+  },
+  {
+    "id": "pair_100",
+    "query_a": "How to increase database connection pool size?",
+    "query_b": "How to decrease database connection pool size?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_101",
+    "query_a": "Is it safe to delete the database?",
+    "query_b": "Is it not safe to delete the database?",
+    "expected_match": false,
+    "category": "negation_conflict",
+    "domain": "databases"
+  },
+  {
+    "id": "pair_102",
+    "query_a": "Should I use unit tests for small scripts?",
+    "query_b": "Should I not use unit tests for small scripts?",
+    "expected_match": false,
+    "category": "negation_conflict",
+    "domain": "testing"
+  },
+  {
+    "id": "pair_103",
+    "query_a": "Can I deploy without testing?",
+    "query_b": "Can I deploy with testing?",
+    "expected_match": false,
+    "category": "negation_conflict",
+    "domain": "devops"
+  },
+  {
+    "id": "pair_104",
+    "query_a": "Is Python statically typed?",
+    "query_b": "Is Python not statically typed?",
+    "expected_match": false,
+    "category": "negation_conflict",
+    "domain": "programming"
+  },
+  {
+    "id": "pair_105",
+    "query_a": "Why does my code fail on Windows?",
+    "query_b": "Why does my code pass on Windows?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "debugging"
+  },
+  {
+    "id": "pair_106",
+    "query_a": "Is cloud storage cheap for large files?",
+    "query_b": "Is cloud storage expensive for large files?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "cloud"
+  },
+  {
+    "id": "pair_107",
+    "query_a": "How to achieve high latency in web servers?",
+    "query_b": "How to achieve low latency in web servers?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "web_api"
+  },
+  {
+    "id": "pair_108",
+    "query_a": "Is the statement true?",
+    "query_b": "Is the statement false?",
+    "expected_match": false,
+    "category": "antonym_polarity_conflict",
+    "domain": "general_knowledge"
+  }
+]

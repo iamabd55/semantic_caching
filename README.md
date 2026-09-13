@@ -139,8 +139,8 @@ Tracking against the phase order defined in [`AGENTS.md`](./AGENTS.md):
 - [x] **Phase 4** — Local embeddings
 - [x] **Phase 5** — Qdrant integration
 - [x] **Phase 6** — Semantic cache core
-- [ ] **Phase 7** — Cache correctness tests
-- [ ] **Phase 8** — Evaluation dataset
+- [x] **Phase 7** — Cache correctness tests
+- [x] **Phase 8** — Evaluation dataset
 - [ ] **Phase 9** — Threshold evaluation
 - [ ] **Phase 10** — MLflow integration
 - [ ] **Phase 11** — Latency + cost benchmark
@@ -287,6 +287,7 @@ Every threshold-sweep run logs its `threshold`, `embedding_model`, and `dataset_
 ## Known Limitations
 
 - **Semantic match ≠ response correctness or freshness.** Two requests can be judged semantically equivalent by the embedding model while the *correct* answer has since changed (e.g. "What's the weather in Lahore?" asked a day apart). This version does not attempt to detect or handle time-sensitive queries — see [Future Work](#future-work).
+- **Bi-encoder polarity blindness & heuristic post-filter.** Dense bi-encoder embeddings (`all-MiniLM-L6-v2`) embed opposing polarities (e.g. "good" vs "bad", or negated queries) very close together (~0.94 cosine similarity) due to shared vocabulary. We implemented a lightweight post-filter (`has_polarity_conflict`) checking common negation words and an explicit list of ~17 domain antonym pairs. This is a narrow patch for known cases found during testing, not comprehensive negation handling.
 - **PII detection is a lightweight regex/pattern check, not a guarantee.** High-risk requests bypass the cache entirely rather than attempting redaction, since redaction can make distinct users' requests semantically indistinguishable to the embedding model (e.g. two different names both becoming `[PERSON]`) — but the detector itself is not claimed to catch every case.
 - **No encryption at rest is implemented** for cached request/response data in this version. A production deployment should use a managed Qdrant/Redis instance with encryption at rest enabled.
 - **No circuit breaker** on provider failures in v1 — retries and fallback ordering exist, but sustained upstream failure isn't yet handled with a breaker pattern.
@@ -295,6 +296,7 @@ Every threshold-sweep run logs its `threshold`, `embedding_model`, and `dataset_
 
 ## Future Work
 
+- Cross-encoder / NLI re-ranking stage as a generalized solution for negation and polarity conflict detection
 - Freshness-aware caching (detecting time-sensitive queries and adjusting TTL/cache eligibility accordingly)
 - Circuit breaker for sustained provider failures
 - Dynamic/adaptive similarity thresholds instead of a single global value
