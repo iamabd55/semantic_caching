@@ -141,8 +141,8 @@ Tracking against the phase order defined in [`AGENTS.md`](./AGENTS.md):
 - [x] **Phase 6** — Semantic cache core
 - [x] **Phase 7** — Cache correctness tests
 - [x] **Phase 8** — Evaluation dataset
-- [ ] **Phase 9** — Threshold evaluation
-- [ ] **Phase 10** — MLflow integration
+- [x] **Phase 9** — Threshold evaluation
+- [x] **Phase 10** — MLflow integration
 - [ ] **Phase 11** — Latency + cost benchmark
 - [ ] **Phase 12** — Redis single-flight locking
 - [ ] **Phase 13** — Tenant isolation
@@ -238,15 +238,20 @@ The evaluation dataset lives at `evaluation/dataset/cache_eval.json` — labeled
 
 ## MLflow
 
-*(Available from Phase 10 onward.)*
+Experiment tracking is integrated to make all threshold sweeps fully reproducible and auditable.
 
 Start the MLflow UI:
 
 ```bash
-uv run mlflow ui
+uv run mlflow ui --backend-store-uri sqlite:///mlflow.db
 ```
 
-Every threshold-sweep run logs its `threshold`, `embedding_model`, and `dataset_version` as parameters, and `precision`, `recall`, `f1`, `hit_rate`, and `average_latency` as metrics — making the final threshold choice reproducible and comparable across runs rather than a one-off guess.
+Then open `http://127.0.0.1:5000` in your browser.
+
+Every threshold-sweep run in experiment `semantic-cache-threshold-evaluation` logs:
+- **Parameters**: `threshold`, `embedding_model`, `dataset_version`, `use_polarity_guard`
+- **Metrics**: `precision`, `recall`, `f1`, `hit_rate`, `average_latency`, `accuracy`, `tp`, `fp`, `tn`, `fn`
+- **Artifacts**: Per-category confusion matrix breakdown (`category_breakdown.json`)
 
 ---
 
@@ -256,15 +261,17 @@ Every threshold-sweep run logs its `threshold`, `embedding_model`, and `dataset_
 
 ### Threshold Evaluation
 
-| Threshold | Precision | Recall | F1 |
-|---|---:|---:|---:|
-| 0.75 | — | — | — |
-| 0.80 | — | — | — |
-| 0.85 | — | — | — |
-| 0.90 | — | — | — |
-| 0.95 | — | — | — |
+Measured on 108 labeled query pairs (`evaluation/dataset/cache_eval.json`) with `all-MiniLM-L6-v2` and Polarity Guard:
 
-**Selected threshold:** — *(justification to be added once the sweep is run)*
+| Threshold | Precision | Recall | F1 | Accuracy |
+|---|---:|---:|---:|---:|
+| 0.75 | 0.8889 | 0.7273 | 0.8000 | 0.8148 |
+| 0.80 | 0.9189 | 0.6182 | 0.7391 | 0.7778 |
+| 0.85 | 0.9259 | 0.4545 | 0.6098 | 0.7037 |
+| 0.90 | 1.0000 | 0.2909 | 0.4507 | 0.6389 |
+| 0.95 | 1.0000 | 0.0909 | 0.1667 | 0.5370 |
+
+**Selected threshold:** `0.75` (or `0.80` for higher precision) — At `0.75`, the system maximizes overall F1 score (`0.8000`) while maintaining strong precision (`88.89%`). When combined with the Polarity Guard, adversarial false positives on negation and antonym conflicts drop by 16 pairs, making `0.75–0.80` the empirically backed operating range. Full report and ablation analysis available in [`evaluation/threshold_evaluation_report.md`](./evaluation/threshold_evaluation_report.md).
 
 ### Latency
 

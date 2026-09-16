@@ -157,6 +157,13 @@ ENV/
 env.bak/
 venv.bak/
 
+# MLflow tracking and experiment artifacts
+mlruns/
+mlflow.db
+mlflow.db-journal
+*.db
+*.sqlite3
+
 # Spyder project settings
 .spyderproject
 .spyproject

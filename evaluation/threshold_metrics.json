@@ -1,0 +1,3641 @@
+{
+  "optimal_threshold": 0.75,
+  "optimal_metrics": {
+    "threshold": 0.75,
+    "tp": 40,
+    "fp": 5,
+    "tn": 48,
+    "fn": 15,
+    "total": 108,
+    "precision": 0.8889,
+    "recall": 0.7273,
+    "f1": 0.8,
+    "accuracy": 0.8148,
+    "category_breakdown": {
+      "positive_rephrasing": {
+        "tp": 40,
+        "fp": 0,
+        "tn": 0,
+        "fn": 15
+      },
+      "negative_topic_overlap": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 4,
+        "fn": 0
+      },
+      "negative_different_entity": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 2,
+        "fn": 0
+      },
+      "negative_different_operation": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 2,
+        "fn": 0
+      },
+      "negative_different_attribute": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 2,
+        "fn": 0
+      },
+      "borderline_distinct_concept": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 2,
+        "fn": 0
+      },
+      "negative_different_algorithm": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 3,
+        "fn": 0
+      },
+      "negative_different_technique": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 0,
+        "fn": 0
+      },
+      "negative_different_framework": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1,
+        "fn": 0
+      },
+      "negative_different_model": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1,
+        "fn": 0
+      },
+      "negative_different_step": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1,
+        "fn": 0
+      },
+      "negative_different_resource": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 0,
+        "fn": 0
+      },
+      "negative_opposite_operation": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 2,
+        "fn": 0
+      },
+      "negative_different_command": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 0,
+        "fn": 0
+      },
+      "negative_different_database": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 2,
+        "fn": 0
+      },
+      "negative_different_concept": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1,
+        "fn": 0
+      },
+      "negative_different_method": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1,
+        "fn": 0
+      },
+      "negative_different_status": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 2,
+        "fn": 0
+      },
+      "negative_different_scaling": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 0,
+        "fn": 0
+      },
+      "negative_different_service": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1,
+        "fn": 0
+      },
+      "negative_different_data_structure": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 1,
+        "fn": 0
+      },
+      "negative_different_protocol": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 2,
+        "fn": 0
+      },
+      "antonym_polarity_conflict": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 14,
+        "fn": 0
+      },
+      "negation_conflict": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 4,
+        "fn": 0
+      }
+    }
+  },
+  "guarded_sweep": [
+    {
+      "threshold": 0.7,
+      "tp": 48,
+      "fp": 9,
+      "tn": 44,
+      "fn": 7,
+      "total": 108,
+      "precision": 0.8421,
+      "recall": 0.8727,
+      "f1": 0.8571,
+      "accuracy": 0.8519,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 48,
+          "fp": 0,
+          "tn": 0,
+          "fn": 7
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 1,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 1,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.75,
+      "tp": 40,
+      "fp": 5,
+      "tn": 48,
+      "fn": 15,
+      "total": 108,
+      "precision": 0.8889,
+      "recall": 0.7273,
+      "f1": 0.8,
+      "accuracy": 0.8148,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 40,
+          "fp": 0,
+          "tn": 0,
+          "fn": 15
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.8,
+      "tp": 34,
+      "fp": 3,
+      "tn": 50,
+      "fn": 21,
+      "total": 108,
+      "precision": 0.9189,
+      "recall": 0.6182,
+      "f1": 0.7391,
+      "accuracy": 0.7778,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 34,
+          "fp": 0,
+          "tn": 0,
+          "fn": 21
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.82,
+      "tp": 32,
+      "fp": 3,
+      "tn": 50,
+      "fn": 23,
+      "total": 108,
+      "precision": 0.9143,
+      "recall": 0.5818,
+      "f1": 0.7111,
+      "accuracy": 0.7593,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 32,
+          "fp": 0,
+          "tn": 0,
+          "fn": 23
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.84,
+      "tp": 28,
+      "fp": 2,
+      "tn": 51,
+      "fn": 27,
+      "total": 108,
+      "precision": 0.9333,
+      "recall": 0.5091,
+      "f1": 0.6588,
+      "accuracy": 0.7315,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 28,
+          "fp": 0,
+          "tn": 0,
+          "fn": 27
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.85,
+      "tp": 25,
+      "fp": 2,
+      "tn": 51,
+      "fn": 30,
+      "total": 108,
+      "precision": 0.9259,
+      "recall": 0.4545,
+      "f1": 0.6098,
+      "accuracy": 0.7037,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 25,
+          "fp": 0,
+          "tn": 0,
+          "fn": 30
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.86,
+      "tp": 22,
+      "fp": 1,
+      "tn": 52,
+      "fn": 33,
+      "total": 108,
+      "precision": 0.9565,
+      "recall": 0.4,
+      "f1": 0.5641,
+      "accuracy": 0.6852,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 22,
+          "fp": 0,
+          "tn": 0,
+          "fn": 33
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.88,
+      "tp": 20,
+      "fp": 1,
+      "tn": 52,
+      "fn": 35,
+      "total": 108,
+      "precision": 0.9524,
+      "recall": 0.3636,
+      "f1": 0.5263,
+      "accuracy": 0.6667,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 20,
+          "fp": 0,
+          "tn": 0,
+          "fn": 35
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.9,
+      "tp": 16,
+      "fp": 0,
+      "tn": 53,
+      "fn": 39,
+      "total": 108,
+      "precision": 1.0,
+      "recall": 0.2909,
+      "f1": 0.4507,
+      "accuracy": 0.6389,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 16,
+          "fp": 0,
+          "tn": 0,
+          "fn": 39
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.92,
+      "tp": 11,
+      "fp": 0,
+      "tn": 53,
+      "fn": 44,
+      "total": 108,
+      "precision": 1.0,
+      "recall": 0.2,
+      "f1": 0.3333,
+      "accuracy": 0.5926,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 11,
+          "fp": 0,
+          "tn": 0,
+          "fn": 44
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.95,
+      "tp": 5,
+      "fp": 0,
+      "tn": 53,
+      "fn": 50,
+      "total": 108,
+      "precision": 1.0,
+      "recall": 0.0909,
+      "f1": 0.1667,
+      "accuracy": 0.537,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 5,
+          "fp": 0,
+          "tn": 0,
+          "fn": 50
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 14,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        }
+      }
+    }
+  ],
+  "raw_sweep": [
+    {
+      "threshold": 0.7,
+      "tp": 48,
+      "fp": 26,
+      "tn": 27,
+      "fn": 7,
+      "total": 108,
+      "precision": 0.6486,
+      "recall": 0.8727,
+      "f1": 0.7442,
+      "accuracy": 0.6944,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 48,
+          "fp": 0,
+          "tn": 0,
+          "fn": 7
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 1,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 1,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 13,
+          "tn": 1,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 0,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.75,
+      "tp": 40,
+      "fp": 21,
+      "tn": 32,
+      "fn": 15,
+      "total": 108,
+      "precision": 0.6557,
+      "recall": 0.7273,
+      "f1": 0.6897,
+      "accuracy": 0.6667,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 40,
+          "fp": 0,
+          "tn": 0,
+          "fn": 15
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 12,
+          "tn": 2,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 0,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.8,
+      "tp": 34,
+      "fp": 19,
+      "tn": 34,
+      "fn": 21,
+      "total": 108,
+      "precision": 0.6415,
+      "recall": 0.6182,
+      "f1": 0.6296,
+      "accuracy": 0.6296,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 34,
+          "fp": 0,
+          "tn": 0,
+          "fn": 21
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 12,
+          "tn": 2,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 0,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.82,
+      "tp": 32,
+      "fp": 18,
+      "tn": 35,
+      "fn": 23,
+      "total": 108,
+      "precision": 0.64,
+      "recall": 0.5818,
+      "f1": 0.6095,
+      "accuracy": 0.6204,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 32,
+          "fp": 0,
+          "tn": 0,
+          "fn": 23
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 11,
+          "tn": 3,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 0,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.84,
+      "tp": 28,
+      "fp": 16,
+      "tn": 37,
+      "fn": 27,
+      "total": 108,
+      "precision": 0.6364,
+      "recall": 0.5091,
+      "f1": 0.5657,
+      "accuracy": 0.6019,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 28,
+          "fp": 0,
+          "tn": 0,
+          "fn": 27
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 10,
+          "tn": 4,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 0,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.85,
+      "tp": 25,
+      "fp": 16,
+      "tn": 37,
+      "fn": 30,
+      "total": 108,
+      "precision": 0.6098,
+      "recall": 0.4545,
+      "f1": 0.5208,
+      "accuracy": 0.5741,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 25,
+          "fp": 0,
+          "tn": 0,
+          "fn": 30
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 10,
+          "tn": 4,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 0,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.86,
+      "tp": 22,
+      "fp": 15,
+      "tn": 38,
+      "fn": 33,
+      "total": 108,
+      "precision": 0.5946,
+      "recall": 0.4,
+      "f1": 0.4783,
+      "accuracy": 0.5556,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 22,
+          "fp": 0,
+          "tn": 0,
+          "fn": 33
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 10,
+          "tn": 4,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 0,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.88,
+      "tp": 20,
+      "fp": 13,
+      "tn": 40,
+      "fn": 35,
+      "total": 108,
+      "precision": 0.6061,
+      "recall": 0.3636,
+      "f1": 0.4545,
+      "accuracy": 0.5556,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 20,
+          "fp": 0,
+          "tn": 0,
+          "fn": 35
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 1,
+          "tn": 0,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 8,
+          "tn": 6,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 0,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.9,
+      "tp": 16,
+      "fp": 12,
+      "tn": 41,
+      "fn": 39,
+      "total": 108,
+      "precision": 0.5714,
+      "recall": 0.2909,
+      "f1": 0.3855,
+      "accuracy": 0.5278,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 16,
+          "fp": 0,
+          "tn": 0,
+          "fn": 39
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 8,
+          "tn": 6,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 0,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.92,
+      "tp": 11,
+      "fp": 11,
+      "tn": 42,
+      "fn": 44,
+      "total": 108,
+      "precision": 0.5,
+      "recall": 0.2,
+      "f1": 0.2857,
+      "accuracy": 0.4907,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 11,
+          "fp": 0,
+          "tn": 0,
+          "fn": 44
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 7,
+          "tn": 7,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 0,
+          "fn": 0
+        }
+      }
+    },
+    {
+      "threshold": 0.95,
+      "tp": 5,
+      "fp": 7,
+      "tn": 46,
+      "fn": 50,
+      "total": 108,
+      "precision": 0.4167,
+      "recall": 0.0909,
+      "f1": 0.1493,
+      "accuracy": 0.4722,
+      "category_breakdown": {
+        "positive_rephrasing": {
+          "tp": 5,
+          "fp": 0,
+          "tn": 0,
+          "fn": 50
+        },
+        "negative_topic_overlap": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "negative_different_entity": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_attribute": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "borderline_distinct_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_algorithm": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "negative_different_technique": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_framework": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_model": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_step": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_resource": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_opposite_operation": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_command": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_database": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_concept": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_method": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_status": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "negative_different_scaling": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_service": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_data_structure": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 1,
+          "fn": 0
+        },
+        "negative_different_protocol": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 2,
+          "fn": 0
+        },
+        "antonym_polarity_conflict": {
+          "tp": 0,
+          "fp": 4,
+          "tn": 10,
+          "fn": 0
+        },
+        "negation_conflict": {
+          "tp": 0,
+          "fp": 3,
+          "tn": 1,
+          "fn": 0
+        }
+      }
+    }
+  ]
+}
