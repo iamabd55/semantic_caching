@@ -45,14 +45,20 @@ class SemanticCache:
         self.qdrant_service = qdrant_service
         self.threshold = threshold if threshold is not None else settings.SIMILARITY_THRESHOLD
 
-    async def lookup(self, request: ChatCompletionRequest) -> CacheResult:
+    async def lookup(
+        self,
+        request: ChatCompletionRequest,
+        tenant_id: str = "default",
+    ) -> CacheResult:
         """
         Execute tiered cache lookup: Exact Match -> Semantic Match.
+        Enforces tenant isolation across both lookup tiers.
         """
         request_hash = compute_request_hash(request)
+        exact_cache_key = f"{tenant_id}:{request_hash}"
 
         # 1. Tier 1: Exact Hash Fast-Path Lookup (O(1), < 1ms)
-        exact_entry = await self.exact_cache.get(request_hash)
+        exact_entry = await self.exact_cache.get(exact_cache_key)
         if exact_entry is not None:
             return CacheResult(
                 hit=True,
@@ -62,11 +68,15 @@ class SemanticCache:
                 embedding_latency_ms=0.0,
             )
 
-        # 2. Tier 2: Semantic Similarity Lookup via Qdrant
+        # 2. Tier 2: Semantic Similarity Lookup via Qdrant with Tenant Pre-Filtering
         canonical_text = canonicalize_request(request)
         query_vector, latency_ms = self.embedding_service.embed_with_latency(canonical_text)
 
-        matches = self.qdrant_service.search_nearest(query_vector=query_vector, limit=1)
+        matches = self.qdrant_service.search_nearest(
+            query_vector=query_vector,
+            limit=1,
+            tenant_id=tenant_id,
+        )
 
         if matches:
             top_match = matches[0]
@@ -103,11 +113,14 @@ class SemanticCache:
         self,
         request: ChatCompletionRequest,
         response: ChatCompletionResponse,
+        tenant_id: str = "default",
     ) -> None:
         """
         Store a new completion response in both ExactCache and Qdrant.
+        Enforces tenant isolation by recording tenant_id in both stores.
         """
         request_hash = compute_request_hash(request)
+        exact_cache_key = f"{tenant_id}:{request_hash}"
         canonical_text = canonicalize_request(request)
         vector = self.embedding_service.embed(canonical_text)
 
@@ -117,17 +130,19 @@ class SemanticCache:
             model=request.model,
             normalized_request=canonical_text,
             embedding=vector,
+            tenant_id=tenant_id,
         )
 
-        # 1. Store in Exact Cache
-        await self.exact_cache.set(request_hash, entry)
+        # 1. Store in Exact Cache (namespaced by tenant_id)
+        await self.exact_cache.set(exact_cache_key, entry)
 
-        # 2. Store in Qdrant Vector Store
+        # 2. Store in Qdrant Vector Store (payload tagged with tenant_id for pre-filtering)
         payload = {
             "original_request_hash": request_hash,
             "normalized_request": canonical_text,
             "response": response.model_dump(),
             "model": request.model,
+            "tenant_id": tenant_id,
             "created_at": datetime.now(timezone.utc).isoformat(),
         }
         self.qdrant_service.upsert_entry(

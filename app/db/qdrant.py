@@ -1,7 +1,14 @@
 from functools import lru_cache
 from typing import Any, Dict, List, Optional
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, PointStruct, VectorParams
+from qdrant_client.models import (
+    Distance,
+    FieldCondition,
+    Filter,
+    MatchValue,
+    PointStruct,
+    VectorParams,
+)
 
 from app.core.config import settings
 
@@ -63,21 +70,35 @@ class QdrantService:
         query_vector: List[float],
         limit: int = 1,
         score_threshold: Optional[float] = None,
+        tenant_id: Optional[str] = None,
         collection_name: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
         """
         Search for nearest neighbor vectors using Cosine similarity.
+        Pre-filters by tenant_id before ranking to guarantee multi-tenant isolation.
         Returns a list of matching entries: [{'id': str, 'score': float, 'payload': dict}]
         """
         name = collection_name or self.default_collection
         if not self.client.collection_exists(name):
             return []
 
+        query_filter: Optional[Filter] = None
+        if tenant_id:
+            query_filter = Filter(
+                must=[
+                    FieldCondition(
+                        key="tenant_id",
+                        match=MatchValue(value=tenant_id),
+                    )
+                ]
+            )
+
         response = self.client.query_points(
             collection_name=name,
             query=query_vector,
             limit=limit,
             score_threshold=score_threshold,
+            query_filter=query_filter,
         )
         return [
             {
