@@ -17,10 +17,11 @@ class Settings(BaseSettings):
     QDRANT_COLLECTION_NAME: str = "semantic_cache"
     REDIS_URL: str = "redis://localhost:6379"
 
-    # Semantic Cache & Embedding Defaults
+    # Semantic Cache, TTL & Embedding Defaults
     SIMILARITY_THRESHOLD: float = 0.85
     EMBEDDING_MODEL_NAME: str = "all-MiniLM-L6-v2"
     EMBEDDING_DIMENSION: int = 384
+    DEFAULT_CACHE_TTL_SECONDS: int = 86400  # 24 hours default
 
     model_config = SettingsConfigDict(
         env_file=".env",

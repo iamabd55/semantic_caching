@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from functools import lru_cache
 from typing import Optional
 
@@ -54,6 +54,7 @@ class SemanticCache:
         Execute tiered cache lookup: Exact Match -> Semantic Match.
         Enforces tenant and model/version isolation across both lookup tiers.
         """
+        now = datetime.now(timezone.utc)
         request_hash = compute_request_hash(request)
         model_version = getattr(request, "model_version", None)
         exact_cache_key = f"{tenant_id}:{request.model}:{model_version or 'latest'}:{request_hash}"
@@ -61,13 +62,16 @@ class SemanticCache:
         # 1. Tier 1: Exact Hash Fast-Path Lookup (O(1), < 1ms)
         exact_entry = await self.exact_cache.get(exact_cache_key)
         if exact_entry is not None:
-            return CacheResult(
-                hit=True,
-                hit_type="EXACT",
-                response=exact_entry.response,
-                similarity_score=1.0,
-                embedding_latency_ms=0.0,
-            )
+            if exact_entry.is_expired(now):
+                await self.exact_cache.delete(exact_cache_key)
+            else:
+                return CacheResult(
+                    hit=True,
+                    hit_type="EXACT",
+                    response=exact_entry.response,
+                    similarity_score=1.0,
+                    embedding_latency_ms=0.0,
+                )
 
         # 2. Tier 2: Semantic Similarity Lookup via Qdrant with Tenant and Model Pre-Filtering
         canonical_text = canonicalize_request(request)
@@ -87,20 +91,33 @@ class SemanticCache:
 
             if score >= self.threshold:
                 payload = top_match.get("payload", {})
-                cached_text = payload.get("normalized_request", "")
 
-                # Post-filter: prevent false hits on explicit negation or antonym polarity conflict
-                if not has_polarity_conflict(canonical_text, cached_text):
-                    cached_response_data = payload.get("response")
-                    if cached_response_data:
-                        cached_response = ChatCompletionResponse.model_validate(cached_response_data)
-                        return CacheResult(
-                            hit=True,
-                            hit_type="SEMANTIC",
-                            response=cached_response,
-                            similarity_score=score,
-                            embedding_latency_ms=latency_ms,
-                        )
+                # Check TTL expiration on semantic match
+                is_expired = False
+                expires_at_str = payload.get("expires_at")
+                if expires_at_str:
+                    try:
+                        exp_dt = datetime.fromisoformat(expires_at_str)
+                        if now > exp_dt:
+                            is_expired = True
+                    except Exception:
+                        pass
+
+                if not is_expired:
+                    cached_text = payload.get("normalized_request", "")
+
+                    # Post-filter: prevent false hits on explicit negation or antonym polarity conflict
+                    if not has_polarity_conflict(canonical_text, cached_text):
+                        cached_response_data = payload.get("response")
+                        if cached_response_data:
+                            cached_response = ChatCompletionResponse.model_validate(cached_response_data)
+                            return CacheResult(
+                                hit=True,
+                                hit_type="SEMANTIC",
+                                response=cached_response,
+                                similarity_score=score,
+                                embedding_latency_ms=latency_ms,
+                            )
 
         # 3. Cache Miss
         top_score = matches[0]["score"] if matches else None
@@ -117,16 +134,21 @@ class SemanticCache:
         request: ChatCompletionRequest,
         response: ChatCompletionResponse,
         tenant_id: str = "default",
+        ttl_seconds: Optional[int] = None,
     ) -> None:
         """
         Store a new completion response in both ExactCache and Qdrant.
-        Enforces tenant and model/version isolation.
+        Enforces tenant, model/version isolation, and TTL expiration.
         """
         request_hash = compute_request_hash(request)
         model_version = getattr(request, "model_version", None)
         exact_cache_key = f"{tenant_id}:{request.model}:{model_version or 'latest'}:{request_hash}"
         canonical_text = canonicalize_request(request)
         vector = self.embedding_service.embed(canonical_text)
+
+        now = datetime.now(timezone.utc)
+        effective_ttl = ttl_seconds if ttl_seconds is not None else settings.DEFAULT_CACHE_TTL_SECONDS
+        expires_at = now + timedelta(seconds=effective_ttl) if effective_ttl > 0 else None
 
         entry = CacheEntry(
             original_request_hash=request_hash,
@@ -136,12 +158,14 @@ class SemanticCache:
             normalized_request=canonical_text,
             embedding=vector,
             tenant_id=tenant_id,
+            created_at=now,
+            expires_at=expires_at,
         )
 
         # 1. Store in Exact Cache (namespaced by tenant_id, model, and version)
         await self.exact_cache.set(exact_cache_key, entry)
 
-        # 2. Store in Qdrant Vector Store (payload tagged with tenant_id and model for pre-filtering)
+        # 2. Store in Qdrant Vector Store (payload tagged with tenant_id, model, and TTL for pre-filtering & freshness)
         payload = {
             "original_request_hash": request_hash,
             "normalized_request": canonical_text,
@@ -149,7 +173,8 @@ class SemanticCache:
             "model": request.model,
             "model_version": model_version,
             "tenant_id": tenant_id,
-            "created_at": datetime.now(timezone.utc).isoformat(),
+            "created_at": now.isoformat(),
+            "expires_at": expires_at.isoformat() if expires_at else None,
         }
         self.qdrant_service.upsert_entry(
             point_id=entry.id,

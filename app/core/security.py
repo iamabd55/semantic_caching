@@ -23,3 +23,35 @@ def get_tenant_id(request: Request) -> str:
         return clean_tenant or "default"
 
     return "default"
+
+
+def get_cache_ttl(request: Request) -> int:
+    """
+    Resolve the Time-To-Live (TTL in seconds) for the current request.
+    Extracts custom TTL from 'X-Cache-TTL' or 'Cache-Control: max-age=...' headers;
+    otherwise falls back to settings.DEFAULT_CACHE_TTL_SECONDS.
+    """
+    from app.core.config import settings
+
+    ttl_header = request.headers.get("X-Cache-TTL")
+    if ttl_header and ttl_header.strip():
+        try:
+            val = int(ttl_header.strip())
+            if val >= 0:
+                return val
+        except ValueError:
+            pass
+
+    cache_control = request.headers.get("Cache-Control")
+    if cache_control and "max-age=" in cache_control:
+        for part in cache_control.split(","):
+            part = part.strip()
+            if part.startswith("max-age="):
+                try:
+                    val = int(part.split("=")[1])
+                    if val >= 0:
+                        return val
+                except ValueError:
+                    pass
+
+    return settings.DEFAULT_CACHE_TTL_SECONDS

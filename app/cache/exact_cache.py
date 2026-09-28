@@ -17,6 +17,11 @@ class ExactCache(ABC):
         pass
 
     @abstractmethod
+    async def delete(self, request_hash: str) -> None:
+        """Remove a cached entry by its key."""
+        pass
+
+    @abstractmethod
     async def clear(self) -> None:
         """Clear all entries from the cache."""
         pass
@@ -36,6 +41,9 @@ class InMemoryExactCache(ExactCache):
 
     async def set(self, request_hash: str, entry: CacheEntry) -> None:
         self._store[request_hash] = entry
+
+    async def delete(self, request_hash: str) -> None:
+        self._store.pop(request_hash, None)
 
     async def clear(self) -> None:
         self._store.clear()

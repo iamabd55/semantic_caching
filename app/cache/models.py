@@ -24,3 +24,10 @@ class CacheEntry(BaseModel):
     tenant_id: Optional[str] = None
     expires_at: Optional[datetime] = None
     metadata: Dict[str, Any] = Field(default_factory=dict)
+
+    def is_expired(self, now: Optional[datetime] = None) -> bool:
+        """Check if the cache entry has exceeded its time-to-live expiration."""
+        if self.expires_at is None:
+            return False
+        current_time = now or datetime.now(timezone.utc)
+        return current_time > self.expires_at
