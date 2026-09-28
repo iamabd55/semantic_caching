@@ -52,10 +52,11 @@ class SemanticCache:
     ) -> CacheResult:
         """
         Execute tiered cache lookup: Exact Match -> Semantic Match.
-        Enforces tenant isolation across both lookup tiers.
+        Enforces tenant and model/version isolation across both lookup tiers.
         """
         request_hash = compute_request_hash(request)
-        exact_cache_key = f"{tenant_id}:{request_hash}"
+        model_version = getattr(request, "model_version", None)
+        exact_cache_key = f"{tenant_id}:{request.model}:{model_version or 'latest'}:{request_hash}"
 
         # 1. Tier 1: Exact Hash Fast-Path Lookup (O(1), < 1ms)
         exact_entry = await self.exact_cache.get(exact_cache_key)
@@ -68,7 +69,7 @@ class SemanticCache:
                 embedding_latency_ms=0.0,
             )
 
-        # 2. Tier 2: Semantic Similarity Lookup via Qdrant with Tenant Pre-Filtering
+        # 2. Tier 2: Semantic Similarity Lookup via Qdrant with Tenant and Model Pre-Filtering
         canonical_text = canonicalize_request(request)
         query_vector, latency_ms = self.embedding_service.embed_with_latency(canonical_text)
 
@@ -76,6 +77,8 @@ class SemanticCache:
             query_vector=query_vector,
             limit=1,
             tenant_id=tenant_id,
+            model=request.model,
+            model_version=model_version,
         )
 
         if matches:
@@ -117,10 +120,11 @@ class SemanticCache:
     ) -> None:
         """
         Store a new completion response in both ExactCache and Qdrant.
-        Enforces tenant isolation by recording tenant_id in both stores.
+        Enforces tenant and model/version isolation.
         """
         request_hash = compute_request_hash(request)
-        exact_cache_key = f"{tenant_id}:{request_hash}"
+        model_version = getattr(request, "model_version", None)
+        exact_cache_key = f"{tenant_id}:{request.model}:{model_version or 'latest'}:{request_hash}"
         canonical_text = canonicalize_request(request)
         vector = self.embedding_service.embed(canonical_text)
 
@@ -128,20 +132,22 @@ class SemanticCache:
             original_request_hash=request_hash,
             response=response,
             model=request.model,
+            model_version=model_version,
             normalized_request=canonical_text,
             embedding=vector,
             tenant_id=tenant_id,
         )
 
-        # 1. Store in Exact Cache (namespaced by tenant_id)
+        # 1. Store in Exact Cache (namespaced by tenant_id, model, and version)
         await self.exact_cache.set(exact_cache_key, entry)
 
-        # 2. Store in Qdrant Vector Store (payload tagged with tenant_id for pre-filtering)
+        # 2. Store in Qdrant Vector Store (payload tagged with tenant_id and model for pre-filtering)
         payload = {
             "original_request_hash": request_hash,
             "normalized_request": canonical_text,
             "response": response.model_dump(),
             "model": request.model,
+            "model_version": model_version,
             "tenant_id": tenant_id,
             "created_at": datetime.now(timezone.utc).isoformat(),
         }

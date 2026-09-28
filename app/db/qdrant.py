@@ -71,27 +71,44 @@ class QdrantService:
         limit: int = 1,
         score_threshold: Optional[float] = None,
         tenant_id: Optional[str] = None,
+        model: Optional[str] = None,
+        model_version: Optional[str] = None,
         collection_name: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
         """
         Search for nearest neighbor vectors using Cosine similarity.
-        Pre-filters by tenant_id before ranking to guarantee multi-tenant isolation.
+        Pre-filters by tenant_id, model, and optional model_version before ranking
+        to guarantee multi-tenant and cross-model isolation.
         Returns a list of matching entries: [{'id': str, 'score': float, 'payload': dict}]
         """
         name = collection_name or self.default_collection
         if not self.client.collection_exists(name):
             return []
 
-        query_filter: Optional[Filter] = None
+        must_conditions = []
         if tenant_id:
-            query_filter = Filter(
-                must=[
-                    FieldCondition(
-                        key="tenant_id",
-                        match=MatchValue(value=tenant_id),
-                    )
-                ]
+            must_conditions.append(
+                FieldCondition(
+                    key="tenant_id",
+                    match=MatchValue(value=tenant_id),
+                )
             )
+        if model:
+            must_conditions.append(
+                FieldCondition(
+                    key="model",
+                    match=MatchValue(value=model),
+                )
+            )
+        if model_version:
+            must_conditions.append(
+                FieldCondition(
+                    key="model_version",
+                    match=MatchValue(value=model_version),
+                )
+            )
+
+        query_filter: Optional[Filter] = Filter(must=must_conditions) if must_conditions else None
 
         response = self.client.query_points(
             collection_name=name,

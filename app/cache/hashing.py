@@ -11,6 +11,7 @@ def serialize_request_deterministically(request: ChatCompletionRequest) -> str:
     """
     payload = {
         "model": request.model,
+        "model_version": getattr(request, "model_version", None),
         "messages": [
             {"content": msg.content, "role": msg.role}
             for msg in request.messages

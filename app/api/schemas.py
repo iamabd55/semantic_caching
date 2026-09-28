@@ -12,6 +12,7 @@ class ChatCompletionRequest(BaseModel):
     messages: List[ChatMessage] = Field(..., min_length=1)
     temperature: Optional[float] = Field(default=0.7, ge=0.0, le=2.0)
     max_tokens: Optional[int] = Field(default=None, ge=1)
+    model_version: Optional[str] = Field(default=None, description="Optional upstream model version")
 
 
 class ChoiceMessage(BaseModel):

@@ -51,9 +51,10 @@ async def create_chat_completion(
             response.headers["X-Cache-Score"] = f"{cache_result.similarity_score:.4f}"
         return cache_result.response
 
-    # 2. Cache Miss: Acquire single-flight lock namespaced by tenant
+    # 2. Cache Miss: Acquire single-flight lock namespaced by tenant and model
     request_hash = compute_request_hash(request)
-    lock_key = f"{tenant_id}:{request_hash}"
+    model_version = getattr(request, "model_version", None) or "latest"
+    lock_key = f"{tenant_id}:{request.model}:{model_version}:{request_hash}"
     async with lock_manager.lock(lock_key):
         # 3. Double-Checked Locking: Check if earlier lock holder populated the cache
         recheck_result = await cache.lookup(request, tenant_id=tenant_id)
