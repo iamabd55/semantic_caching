@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, HTTPException, Response, status
+from typing import Optional
+from fastapi import APIRouter, Depends, Header, HTTPException, Response, status
 
 from app.api.schemas import ChatCompletionRequest, ChatCompletionResponse
 from app.cache.exact_cache import get_exact_cache
@@ -12,14 +13,22 @@ from app.providers.base import (
     ProviderAuthenticationError,
     ProviderException,
 )
-from app.providers.openrouter import OpenRouterProvider
+from app.providers.factory import get_provider
 
 router = APIRouter(prefix="/v1", tags=["Chat Completions"])
 
 
-def get_llm_provider() -> LLMProvider:
-    """Dependency provider returning the default LLM provider."""
-    return OpenRouterProvider()
+def get_llm_provider(
+    x_provider: Optional[str] = Header(default=None, alias="X-Provider"),
+) -> LLMProvider:
+    """Dependency provider returning the requested or default configured LLM provider."""
+    try:
+        return get_provider(x_provider)
+    except ProviderException as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        )
 
 
 @router.post(
@@ -46,6 +55,7 @@ async def create_chat_completion(
     """
     response.headers["X-Tenant-ID"] = tenant_id
     response.headers["X-Cache-TTL"] = str(ttl_seconds)
+    response.headers["X-Provider"] = getattr(provider, "name", "unknown")
 
     # 0. PII Guard: Bypass cache completely to avoid persisting or cross-contaminating sensitive data
     has_pii, pii_type = check_request_pii(request)

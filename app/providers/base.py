@@ -14,6 +14,7 @@ class ProviderAuthenticationError(ProviderException):
 
 class LLMProvider(ABC):
     """Abstract base class for LLM providers."""
+    name: str = "custom"
 
     @abstractmethod
     async def complete(self, request: ChatCompletionRequest) -> ChatCompletionResponse:

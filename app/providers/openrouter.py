@@ -15,6 +15,7 @@ from app.providers.base import LLMProvider, ProviderAuthenticationError, Provide
 class OpenRouterProvider(LLMProvider):
     """OpenRouter provider implementation."""
 
+    name: str = "openrouter"
     API_URL = "https://openrouter.ai/api/v1/chat/completions"
 
     def __init__(self, api_key: Optional[str] = None, timeout: float = 60.0):

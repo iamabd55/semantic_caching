@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     # LLM API Keys (loaded from .env)
     OPENROUTER_API_KEY: str | None = None
     GROQ_API_KEY: str | None = None
+    DEFAULT_PROVIDER: str = "openrouter"
 
     # Infrastructure URLs & Collections
     QDRANT_URL: str = "http://localhost:6333"
